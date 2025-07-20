@@ -1,0 +1,6 @@
+git clone --recursive https://github.com/guerinoni/qTsConverter.git
+sudo apt update
+sudo apt install qtbase5-dev qtbase5-dev-tools qt5-qmake cmake
+sudo apt install qml-module-qtquick-controls qtdeclarative5-dev
+sudo apt install qtbase5-private-dev
+./scripts/compile-cli.sh
