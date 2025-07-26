@@ -12,10 +12,10 @@ jobs:
         with:
           submodules: 'recursive'
 
-      - name: "Install clang-format-11"
+      - name: "Install clang-format"
         run: |
           sudo apt-get update
-          sudo apt-get install clang-format-11
+          sudo apt-get install clang-format
 
       - name: "Format Codes"
         run: clang-format-11 -i src/*.cpp src/*/*.cpp src/*/*.hpp tests/*.cpp tests/*.hpp
@@ -33,3 +33,4 @@ jobs:
           assignees: "${{ github.actor }}"
           reviewers: "${{ github.actor }}"
           branch: "auto-pr/clang-format/${{ github.ref }}"
+          base: ${{ github.base_ref || 'master' }}
