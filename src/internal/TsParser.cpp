@@ -59,8 +59,8 @@ auto TsParser::parse() const -> Result
 
             for (int k = 0; k < locations.size(); k++) {
                 if (locations.at(k).nodeName() == "location") {
-                    auto locMsg = locations.item(k);
-                    auto location = wrapLocation(locMsg); 
+                    auto locMsg   = locations.item(k);
+                    auto location = wrapLocation(locMsg);
                     msg.locations.emplace_back(location);
                 }
             }
@@ -76,6 +76,7 @@ auto TsParser::wrapLocation(const QDomNode &node) -> std::pair<QString, QString>
 {
     auto location = node.toElement();
     auto fn       = location.attribute(QStringLiteral("filename"));
-    auto line     = location.attribute(QStringLiteral("line")); // preserves "+20", "-3", etc.
+    auto line     = location.attribute(
+        QStringLiteral("line")); // preserves "+20", "-3", etc.
     return std::make_pair(fn, line);
 }

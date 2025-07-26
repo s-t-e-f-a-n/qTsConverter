@@ -54,8 +54,8 @@ auto TsBuilder::build(const Result &res) const -> bool
                     s.writeAttribute("filename", loc.first);
 
                 if (!loc.second.isEmpty())
-                    s.writeAttribute("line", loc.second);            
-                }
+                    s.writeAttribute("line", loc.second);
+            }
 
             s.writeTextElement("source", msg.source);
             if (msg.comment != "") {

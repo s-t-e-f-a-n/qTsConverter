@@ -85,7 +85,8 @@ auto CsvParser::parse() const -> Result
     return Result{ "", std::move(translations), std::move(p), std::move(root) };
 }
 
-auto CsvParser::decodeLocation(const QString &str) -> std::pair<QString, QString>
+auto CsvParser::decodeLocation(const QString &str)
+    -> std::pair<QString, QString>
 {
     auto list = str.split(QStringLiteral(" - "));
     return std::make_pair(list.first(), list.last());
